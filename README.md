@@ -47,6 +47,6 @@ By automating these tasks, **NeuroInsight** significantly reduces human error an
 Clone the repository, set up your environment, and follow the steps in the documentation to run the application or use the models for tumor analysis.
 
 ```bash
-git clone https://github.com/yourusername/NeuroInsight.git
+git clone https://github.com/UsmanK7/Neuro-Insight.git
 cd NeuroInsight
 pip install -r requirements.txt
