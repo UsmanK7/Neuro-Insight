@@ -48,5 +48,5 @@ Clone the repository, set up your environment, and follow the steps in the docum
 
 ```bash
 git clone https://github.com/UsmanK7/Neuro-Insight.git
-cd NeuroInsight
+cd Neuro-Insight
 pip install -r requirements.txt
