@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+/* create variables  */
+:root {
+    --font-color: #3F81B4;
+    --btn-color: #3F81B4;
+    --bg-blue: #014B84;
+    /* --primary-color: #3F81B4; */
+    /* --secondary-color: #014B84;
+    --background-dark-color: #10121A;
+    --background-dark-grey: #191D2B;
+    --border-color: #2e344e;
+    --background-light-color: #f1f1f1;
+    --background-light-color-2: rgba(3, 127, 255, 0.3);
+    --white-color: #fff;
+    --font-light-color: #a4acc4;
+    --font-dark-color: #313131;
+    --font-dark-color-2: #151515;
+    --sidebar-dark-color: #191D2B; */
+}
+
+#home {
+    background-color: var(--bg-blue);
+}
+
+.navbar-brand {
+    color: var(--font-color) !important;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 27px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.nav-btn {
+    margin-right: 19px;
+    width: 90px;
+    text-align: center;
+    background-color: var(--btn-color) !important;
+    font-size: 11px !important;
+    color: #ffff !important;
+    font-weight: 600 !important;
+    line-height: 18px !important;
+    border-radius: 9px !important;
+    text-underline-position: from-font !important;
+    text-decoration-skip-ink: none;
+}
+
+
+.nav-btn:hover {
+    background-color: #2a6592 !important;
+}
+
+.active-dropdown {
+    background-color: var(--btn-color) !important;
+    color: #ffff !important;
+}
+
+.viewer {
+    background-color: #fff;
+    border-radius: 4px;
+    min-height: calc(100vh - 180px);
+    /* Adjust 50px to the height of other elements if needed */
+}
+
+#yellow-div {
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    #yellow-div {
+        display: none;
+    }
+}
+
+
+
+@media (max-width: 426px) {
+    .viewer {
+        background-color: #fff;
+        min-height: calc(100vh - 340px);
+        /* Adjust 50px to the height of other elements if needed */
+    }
+
+    .navbar-brand {
+        color: var(--font-color) !important;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 27px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+    }
+
+    .nav-btn {
+        margin-bottom: 20px !important;
+    }
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: yellow;
+    z-index: 1050;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.drawer.show {
+    transform: translateX(0);
+}
