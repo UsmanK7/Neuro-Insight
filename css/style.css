@@ -274,3 +274,70 @@
     background: #F3F7F6;
     border-left: 8px solid #3F81B4;
 }
+
+
+/* modal  */
+.drop-zone {
+    height: 300px;
+    background-color: #F9F9F9;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.drop-zone:hover {
+    border-color: var(--bg-blue);
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+.drop-zone.dragover {
+    border-color: var(--bg-blue);
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+.sample-images {
+    transition: all 0.5s ease;
+}
+
+.sample-images.hide {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.sample-image {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.sample-image:hover {
+    transform: scale(1.05);
+}
+
+.upload-progress {
+    display: none;
+}
+
+.success-checkmark {
+    display: none;
+    color: #28a745;
+    font-size: 3rem;
+    animation: scale-in 0.5s ease;
+}
+
+@keyframes scale-in {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
