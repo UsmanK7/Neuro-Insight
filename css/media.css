@@ -1,0 +1,57 @@
+@media (max-width: 1043px) {
+    .upload-mri {
+        padding-left: 2px;
+    }
+
+    .box-heading {
+        font-size: 12px;
+        font-weight: 200;
+
+    }
+}
+
+@media (max-width: 769px) {
+    .custom-div {
+        margin: 17px 10px 82px 10px;
+        /* Top, Right, Bottom, Left */
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-btn {
+        margin-bottom: 10px !important;
+    }
+    
+
+    #yellow-div {
+        display: none;
+    }
+}
+
+
+
+
+@media (max-width: 426px) {
+    .viewer {
+        background-color: #fff;
+        min-height: calc(100vh - 340px);
+        /* Adjust 50px to the height of other elements if needed */
+    }
+
+    .navbar-brand {
+        color: var(--font-color) !important;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 27px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+    }
+
+    .nav-btn {
+        margin-bottom: 20px !important;
+    }
+
+    
+
+}
