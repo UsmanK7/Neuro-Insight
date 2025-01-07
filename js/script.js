@@ -74,20 +74,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-</script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-crossorigin="anonymous"></script>
-<script>
-document.getElementById('drawerToggle').addEventListener('click', function (event) {
-    event.stopPropagation();
-    document.getElementById('drawer').classList.toggle('show');
-});
 
-document.addEventListener('click', function (event) {
-    var drawer = document.getElementById('drawer');
-    if (drawer.classList.contains('show') && !drawer.contains(event.target)) {
-        drawer.classList.remove('show');
-    }
+
+document.addEventListener('DOMContentLoaded', function () {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
 });
