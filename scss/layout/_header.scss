@@ -122,3 +122,11 @@ $navbar-light-active-color: #4568F9;
         /* Center the button within the flex container */
     }
 }
+
+/* Make navbar sticky */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* Ensure it stays on top of other content */
+}

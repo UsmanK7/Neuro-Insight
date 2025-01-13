@@ -23924,6 +23924,14 @@ textarea.form-control-lg {
     /* Center the button within the flex container */
   }
 }
+/* Make navbar sticky */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* Ensure it stays on top of other content */
+}
+
 .landing-page {
   min-height: calc(100vh - 73px);
   position: relative;
