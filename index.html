@@ -1,286 +1,227 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Poppins font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Inter fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <title>Neuro Insight</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/media.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="icon" href="images/favicon.png" type="image/png">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- ############################# -->
+    <!-- NAVBAR -->
+    <!-- ############################# -->
 
-</head>
+    <nav class="navbar navbar-expand-lg bg-light-blue">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <div class="d-flex align-items-center gap-2">
+            <img
+              width="45"
+              height="45"
+              src="assets/images/neuro_insight_logo.png"
+              alt=""
+            />
+            <h6 class="nav-heading">Neuro Insight</h6>
+          </div>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav gap-5">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Our team</a>
+            </li>
 
-<body id="home">
-    <header>
-        <nav class="navbar align-items-center navbar-expand-lg navbar-light bg-light mt-3">
-            <div class="container">
-                <button class="navbar-toggler" type="button" id="drawerToggle">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">
-                    <img src="images/neuro_insight_logo.png" alt="Logo" style="width: 45px; margin-right: 11px;">
-                    Neuro Insight
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto align-items-center">
-                        <li class="nav-item">
-                            <div class="dropdown">
-                                <button class="btn nav-btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Products
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item active-dropdown" href="#">Brain MRI Analysis</a></li>
-                                    <li><a class="dropdown-item" href="#">Heart disease</a></li>
-                                    <li><a class="dropdown-item" href="#">Bone fracture</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn nav-btn" href="html/about.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn nav-btn" href="contact.html">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn" href="images/share.png" data-bs-toggle="tooltip" title="Share">
-                                <img src="images/share.png" alt="Export" style="width: 24px;">
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn" href="https://github.com/UsmanK7/Neuro-Insight" data-bs-toggle="tooltip"
-                                title="GitHub">
-                                <img src="images/github.png" alt="GitHub" style="width: 24px;">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="drawer" id="drawer">
-
-        <div class="drawer-div">
-            <div class="upload-mri">
-                <h3 class="box-heading">Upload Brain MRI</h3>
-            </div>
-            <div class="control-option-div">
-                <h3 class="box-small-heading">Select File</h3>
-                <a class="control-btn" href="html/about.html">Browse</a>
-            </div>
-
-
-            <div class="upload-mri">
-                <h3 class="box-heading">Segmentation options</h3>
-            </div>
-            <div class="control-option-div">
-                <h3 class="box-small-heading">Model</h3>
-                <select class="control-select">
-                    <option value="" disabled selected>Select</option>
-                    <option value="model1">Model 1</option>
-                    <option value="model2">Model 2</option>
-                    <option value="model3">Model 3</option>
-                </select>
-            </div>
-
-            <div class="control-option-div">
-                <h3 class="box-small-heading">Inference</h3>
-                <a class="control-btn" href="html/about.html">Run</a>
-            </div>
-
-
-            <div class="upload-mri">
-                <h3 class="box-heading">Save labels</h3>
-            </div>
-            <div class="control-option-div">
-                <h3 class="box-small-heading">File name</h3>
-                <input type="text" class="editable-box" placeholder="Enter file name" />
-            </div>
-            <div class="control-option-div">
-                <h3 class="box-small-heading">Save File</h3>
-                <a class="control-btn" href="html/about.html">Save</a>
-            </div>
-
-
-            <div class="upload-mri">
-                <h3 class="box-heading">Status</h3>
-            </div>
-            <div class="control-option-div">
-                <h3 class="box-small-heading">No activity yet</h3>
-            </div>
+            <button class="btn nav-btn">SIGN UP</button>
+          </ul>
         </div>
-    </div>
+      </div>
+    </nav>
 
-    <div class="mt-2 mt-md-3 mx-4">
-        <div class="row gap-2 gap-lg-3">
-            <!-- section 1 -->
-            <div class="col-2 control-column bg-white" id="yellow-div">
-                <div class="upload-mri">
-                    <h3 class="box-heading">Upload Brain MRI</h3>
-                </div>
-                <div class="control-option-div">
-                    <h3 class="box-small-heading">Select File</h3>
-                    <button class="control-btn" data-bs-toggle="modal" data-bs-target="#uploadModal"
-                        style="border: none;">Browse</button>
-                </div>
+    <!-- ############################# -->
+    <!-- Landing page  -->
+    <!-- ############################# -->
 
-
-                <div class="upload-mri">
-                    <h3 class="box-heading">Segmentation options</h3>
-                </div>
-                <div class="control-option-div">
-                    <h3 class="box-small-heading">Model</h3>
-                    <select class="control-select">
-                        <option value="" disabled selected>Select</option>
-                        <option value="model1">Model 1</option>
-                        <option value="model2">Model 2</option>
-                        <option value="model3">Model 3</option>
-                    </select>
-                </div>
-
-                <div class="control-option-div">
-                    <h3 class="box-small-heading">Inference</h3>
-                    <a class="control-btn" href="html/about.html">Run</a>
-                </div>
-
-
-                <div class="upload-mri">
-                    <h3 class="box-heading">Save labels</h3>
-                </div>
-                <div class="control-option-div">
-                    <h3 class="box-small-heading">File name</h3>
-                    <input type="text" class="editable-box" placeholder="Enter file name" maxlength="10" />
-                </div>
-                <div class="control-option-div">
-                    <h3 class="box-small-heading">Save File</h3>
-                    <a class="control-btn" href="html/about.html">Save</a>
-                </div>
-
-
-                <div class="upload-mri">
-                    <h3 class="box-heading">Status</h3>
-                </div>
-                <div class="control-option-div">
-                    <h3 class="box-small-heading">No activity yet</h3>
-                </div>
-            </div>
-            <div class="col-12 col-md viewer">
-                <div class="upload-mri">
-                    <h3 class="box-heading">MRI Viewer</h3>
-
-                </div>
-
-                <div class="custom-div">
-                    <!-- <div class="text-row">
-                        <a href="#">File</a>
-                        <a href="#">View</a>
-                        <a href="#">Settings</a>
-                        <a href="#">Help</a>
-
-                    </div> -->
-                    <div class="black-rectangle"></div>
-                </div>
-            </div>
-            <div class="col-12 col-md viewer">
-                <div class="upload-mri">
-                    <h3 class="box-heading">Labels Viewer</h3>
-                </div>
-
-                <div class="custom-div">
-                    <!-- <div class="text-row">
-                        <a href="#">File</a>
-                        <a href="#">View</a>
-                        <a href="#">Settings</a>
-                        <a href="#">Help</a>
-
-                    </div> -->
-                    <div class="black-rectangle"></div>
-                </div>
-            </div>
+    <section class="landing-page d-flex align-items-center">
+      <div
+        class="container landing-page-left d-flex flex-column align-items-start gap-3 gap-lg-4"
+      >
+        <!-- Heading and button -->
+        <h3 class="f-18">Brain MRI Analysis + Report generation</h3>
+        <h1 class="f-50">
+          Transforming Brain <span style="color: #3f81b4">MRI</span> <br />
+          Analysis with AI
+        </h1>
+        <!-- Features with equal spacing -->
+        <div class="features-container-1">
+          <div class="features">
+            <img
+              width="20"
+              height="20"
+              src="assets/images/Tick Square.png"
+              alt=""
+            />
+            <h3 class="f-16">Cancer Detection with High Precision</h3>
+          </div>
+          <div class="features">
+            <img
+              width="20"
+              height="20"
+              src="assets/images/Tick Square.png"
+              alt=""
+            />
+            <h3 class="f-16">Interactive Report Generator</h3>
+          </div>
         </div>
-    </div>
-
-
-
-    <!-- Upload Modal -->
-    <div class="modal fade" id="uploadModal" tabindex="-1">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <!-- <i class="fas fa-brain fa-4x mb-3" style="color: #8e44ad;"></i> -->
-                    <h5 class="modal-title">Upload Image</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Drop Zone -->
-                    <div class="drop-zone mb-4" id="dropZone">
-                        <i class="fas fa-cloud-upload-alt fa-3x mb-3 text-muted"></i>
-                        <p class="mb-0">Drag and drop your image here or click to browse</p>
-                        <input type="file" id="fileInput" hidden accept="image/*">
-                    </div>
-
-                    <!-- Upload Progress -->
-                    <div class="upload-progress text-center my-4" id="uploadProgress">
-                        <div class="progress mb-3">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar">
-                            </div>
-                        </div>
-                        <div class="success-checkmark text-primary">
-                            <i class="fas fa-check-circle"></i>
-                            <h3>Image uploaded</h3>
-                        </div>
-                    </div>
-
-                    <!-- Sample Images -->
-                    <div class="sample-images" id="sampleImages">
-                        <h6 class="mb-3" style="font-weight: bold;" >Or use one of these sample images for testing:</h6>
-                        <div class="row g-3">
-                            <div class="col-4">
-                                <img src="images/images (1).jpg" class="img-fluid rounded sample-image" alt="Sample 1">
-                            </div>
-                            <div class="col-4">
-                                <img src="images/images (1).jpg" class="img-fluid rounded sample-image" alt="Sample 2">
-                            </div>
-                            <div class="col-4">
-                                <img src="images/images (1).jpg" class="img-fluid rounded sample-image" alt="Sample 3">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Uploaded Image Preview -->
-                    <div id="uploadedImageContainer" class="text-center mt-4" style="display: none;">
-                    </div>
-                </div>
-            </div>
+        <div class="features-container-2">
+          <div class="features">
+            <img
+              width="20"
+              height="20"
+              src="assets/images/Tick Square.png"
+              alt=""
+            />
+            <h3 class="f-16">Detailed Tumor Segmentation</h3>
+          </div>
+          <div class="features">
+            <img
+              width="20"
+              height="20"
+              src="assets/images/Tick Square.png"
+              alt=""
+            />
+            <h3 class="f-16">Personalized Tumor Classification</h3>
+          </div>
         </div>
-        <script src="js/script.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
-        <script>
-            document.getElementById('drawerToggle').addEventListener('click', function (event) {
-                event.stopPropagation();
-                document.getElementById('drawer').classList.toggle('show');
-            });
+        <div class="btn-container">
+          <button class="btn btn-landing">
+            Analyze MRI Scan
+            <img
+              src="assets/images/Arrow - Right Circle.png"
+              alt="Arrow Icon"
+              width="20"
+              height="20"
+              class="me-2"
+            />
+          </button>
+          <img
+            class="tilde"
+            src="assets/images/tilde.png"
+            alt="Tilde Icon"
+            width="30"
+            height="30"
+          />
+        </div>
+      </div>
 
-            document.addEventListener('click', function (event) {
-                var drawer = document.getElementById('drawer');
-                if (drawer.classList.contains('show') && !drawer.contains(event.target)) {
-                    drawer.classList.remove('show');
-                }
-            });
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+      <!-- Background Image -->
 
+      <div class="landing-page-image-container">
+        <img
+          src="assets/images/landing-page-image.png"
+          alt="Landing Page Image"
+          class="landing-page-image"
+        />
+      </div>
+    </section>
 
-</body>
+    <section class="university-section">
+      <div class="d-flex justify-content-center">
+        <h1 class="f-50 mt-5">Data provided by</h1>
+      </div>
+      <div class="logos">
+        <div class="logos-slide">
+          <img src="assets/images/universities-logos/Harvard-Logo.png" />
+          <img src="assets/images/universities-logos/images.png" />
+          <img src="assets/images/universities-logos/MIT-Logo.png" />
+          <img
+            src="assets/images/universities-logos/The_University_of_California_UCLA.svg.png"
+          />
+          <img
+            src="assets/images/universities-logos/University_of_Washington_seal.svg.png"
+          />
+        </div>
+      </div>
+    </section>
 
+    <section
+      class="tumor-section d-flex justify-content-between align-items-center"
+    >
+      <div class="container">
+        <!-- Row for the columns -->
+        <div class="row d-flex justify-content-between">
+          <div class="col-lg-6">
+            <h1 class="f-36 mb-lg-5">What is Brain Tumor?</h1>
+            <p class="mt-lg-3 tumer-p">
+              A brain tumor is an abnormal growth of cells in or around the
+              brain, <br />
+              which can be benign or malignant. MRI scans, enhanced by deep
+              learning, <br />
+              play a crucial role in detecting tumors by identifying subtle
+              abnormalities with high accuracy. <br />
+              <br />
+              Treatment options include surgery, radiation, and chemotherapy,
+              depending on the tumor's type and location.
+            </p>
+          </div>
+
+          <!-- YouTube Video Embed -->
+          <div class="col-lg-6 vid-frame" d-flex justify-content-left>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/RQsUeoVHJl4?si=Tb9dAFBYpKgzkGBH"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="assets/bootstrap5/js/bootstrap.bundle.js"></script>
+    <script>
+      var copy = document.querySelector(".logos-slide").cloneNode(true);
+      document.querySelector(".logos").appendChild(copy);
+    </script>
+  </body>
 </html>

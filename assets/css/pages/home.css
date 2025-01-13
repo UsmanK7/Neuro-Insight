@@ -1,0 +1,203 @@
+.landing-page {
+  min-height: calc(100vh - 73px);
+  position: relative;
+  background-color: #E3E8FF;
+  overflow: hidden;
+}
+
+.landing-page-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: auto;
+  width: auto;
+  /* Ensures image scales proportionally */
+  width: auto;
+  /* Maintains natural aspect ratio */
+}
+
+.features-container-1 {
+  display: flex;
+  gap: 30px;
+}
+
+.features-container-2 {
+  display: flex;
+  gap: 83px;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.btn-landing {
+  display: flex;
+  height: 50px;
+  padding: 13px 20px;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: #3F81B4;
+  color: var(--White, #FFF);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.btn-landing:hover {
+  background: #3F81B4;
+  color: var(--White, #FFF);
+}
+
+.btn-container {
+  margin-top: 30px;
+  position: relative;
+}
+
+.tilde {
+  position: absolute;
+  right: -24px;
+  top: -20px;
+}
+
+@media (max-width: 1252px) {
+  .features-container-2 {
+    gap: 70px;
+  }
+  .landing-page-image {
+    width: 480px !important;
+  }
+}
+@media (max-width: 990px) {
+  .landing-page {
+    height: 50vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .landing-page-image {
+    position: relative;
+    /* Reset from absolute to normal positioning */
+    bottom: auto;
+    /* Remove any custom positioning */
+    right: auto;
+    /* Remove any custom positioning */
+    height: auto;
+    /* Allow the image to maintain its natural height */
+    width: 100%;
+    /* Make the image take up the full width of its container */
+    max-width: 100%;
+    /* Ensure the image does not overflow horizontally */
+  }
+  .landing-page-left {
+    align-items: center !important;
+  }
+}
+@media (max-width: 545px) {
+  .features-container-1 {
+    gap: 0;
+    flex-direction: column;
+  }
+  .features-container-2 {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+.university-section {
+  height: 340px;
+  background-color: #fff;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.logos {
+  overflow: hidden;
+  padding: 60px 0;
+  background: white;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 35s slide infinite linear;
+}
+
+.logos-slide img {
+  height: 130px;
+  margin: 0 40px;
+}
+
+.tumor-section {
+  height: 500px;
+  background-color: #E3E8FF;
+  /* Added padding for spacing */
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  /* Optional: Add border radius for styling */
+}
+
+.vid-frame {
+  padding-left: 10%;
+}
+
+@media (max-width: 1176px) {
+  .vid-frame {
+    padding-left: 0;
+  }
+}
+@media (max-width: 990px) {
+  .tumor-section .container .row {
+    display: flex;
+    flex-direction: column;
+  }
+  iframe {
+    width: 100%;
+    height: 240px;
+    border-radius: 8px;
+    /* Optional: Add border radius for styling */
+  }
+}
+
+/*# sourceMappingURL=home.css.map */

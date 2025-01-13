@@ -1,0 +1,18 @@
+.landing-page {
+  min-height: 100vh;
+  position: relative;
+  background-color: #f8f9fa;
+  overflow: hidden;
+}
+
+.landing-page-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-height: 50vh;
+  /* Ensures image scales proportionally */
+  width: auto;
+  /* Maintains natural aspect ratio */
+}
+
+/*# sourceMappingURL=home.css.map */
