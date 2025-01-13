@@ -7,6 +7,7 @@
     <!-- Poppins font  -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
@@ -83,7 +84,11 @@
       </p>
     </div>
 
-    <div class="container teams-card-container gap-2 gap-xl-5 mt-5">
+    <div
+      data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+      class="container teams-card-container gap-2 gap-xl-5 mt-5"
+    >
       <div class="card col" style="width: 18rem">
         <img src="assets/images/team/1.png" class="card-img-top" alt="..." />
         <div class="card-body">
@@ -214,7 +219,62 @@
       </div>
     </div>
 
+    <footer class="bg-white mt-5 py-5">
+      <div class="container">
+        <div class="row">
+          <!-- Logo and Description Column -->
+          <div class="col-lg-4 col-md-12 mb-4">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <img
+                width="45"
+                height="45"
+                src="assets/images/neuro_insight_logo.png"
+                alt="Logo"
+              />
+              <h6 class="nav-heading">Neuro Insight</h6>
+            </div>
+            <p>
+              Transforming brain tumor analysis through innovative AI solutions
+              and medical expertise.
+            </p>
+          </div>
+
+          <!-- Useful Links Column -->
+          <div class="col-lg-4 col-md-12 mb-4">
+            <h5 class="mb-3">Useful Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-decoration-none text-dark">Home</a>
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-dark">Products</a>
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-dark">Our Team</a>
+              </li>
+              <li>
+                <a href="#" class="text-decoration-none text-dark">Sign Up</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Column -->
+          <div class="col-lg-4 col-md-12 mb-4">
+            <h5 class="mb-3">Contact Us</h5>
+            <ul class="list-unstyled">
+              <li>Email: info@neuroinsight.com</li>
+              <li>Phone: +1 234 567 890</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <script src="assets/bootstrap5/js/bootstrap.bundle.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <script>
       var copy = document.querySelector(".logos-slide").cloneNode(true);
       document.querySelector(".logos").appendChild(copy);

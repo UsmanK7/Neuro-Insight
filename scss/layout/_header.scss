@@ -130,3 +130,8 @@ $navbar-light-active-color: #4568F9;
     z-index: 1000;
     /* Ensure it stays on top of other content */
 }
+
+$navbar-light-toggler-icon-bg: url("../../assets/images/menu.png");
+
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
