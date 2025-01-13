@@ -66,13 +66,18 @@
               <a class="nav-link active" aria-current="page" href="#">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Products</a>
+              <a class="nav-link" href="dashboard.html">Products</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="our_team.html">Our team</a>
             </li>
 
-            <button class="btn nav-btn">SIGN UP</button>
+            <button
+            class="btn nav-btn"
+            onclick="window.location.href='sign_up.html'"
+          >
+            SIGN UP
+          </button>
           </ul>
         </div>
       </div>
@@ -87,13 +92,13 @@
         class="container landing-page-left d-flex flex-column align-items-start gap-3 gap-lg-4"
       >
         <!-- Heading and button -->
-        <h3 class="f-18">Brain MRI Analysis + Report generation</h3>
-        <h1 class="f-50">
+        <h3 class="f-18" data-aos="fade-down">Brain MRI Analysis + Report generation</h3>
+        <h1 class="f-50" data-aos="fade-right">
           Transforming Brain <span style="color: #3f81b4">MRI</span> <br />
           Analysis with AI
         </h1>
         <!-- Features with equal spacing -->
-        <div class="features-container-1">
+        <div class="features-container-1" data-aos="flip-up" data-aos-duration="1000">
           <div class="features">
             <img
               width="20"
@@ -113,7 +118,7 @@
             <h3 class="f-16">Interactive Report Generator</h3>
           </div>
         </div>
-        <div class="features-container-2">
+        <div class="features-container-2" data-aos="flip-up" data-aos-duration="2000">
           <div class="features">
             <img
               width="20"
@@ -133,17 +138,19 @@
             <h3 class="f-16">Personalized Tumor Classification</h3>
           </div>
         </div>
-        <div class="btn-container">
-          <button class="btn btn-landing">
-            Analyze MRI Scan
-            <img
-              src="assets/images/Arrow - Right Circle.png"
-              alt="Arrow Icon"
-              width="20"
-              height="20"
-              class="me-2"
-            />
-          </button>
+        <div class="btn-container" data-aos="fade-up">
+          <a href="dashboard.html" style="text-decoration: none;">
+            <button class="btn btn-landing">
+              Analyze MRI Scan
+              <img
+          src="assets/images/Arrow - Right Circle.png"
+          alt="Arrow Icon"
+          width="20"
+          height="20"
+            onclick="this.style.marginRight='8px'"
+              />
+            </button>
+          </a>
           <img
             class="tilde"
             src="assets/images/tilde.png"
@@ -156,18 +163,22 @@
 
       <!-- Background Image -->
 
-      <div class="landing-page-image-container">
-        <img
-          src="assets/images/landing-page-image.png"
+      <div class="landing-page-image-container" >
+        <img data-aos="fade-up-left"
+          src="assets/images/landing-page-image.svg"
           alt="Landing Page Image"
           class="landing-page-image"
         />
       </div>
     </section>
 
+    <!-- ############################# -->
+    <!-- University section  -->
+    <!-- ############################# -->
+
     <section class="university-section">
       <div class="d-flex justify-content-center">
-        <h1 class="f-50 mt-5">Data provided by</h1>
+        <h1 class="f-50">Data provided by</h1>
       </div>
       <div class="logos">
         <div class="logos-slide">
@@ -184,6 +195,9 @@
       </div>
     </section>
 
+    <!-- ############################# -->
+    <!-- TUMOR SECTION -->
+    <!-- ############################# -->
     <section
       class="tumor-section d-flex justify-content-between align-items-center"
     >
@@ -206,7 +220,7 @@
           </div>
 
           <!-- YouTube Video Embed -->
-          <div class="col-lg-6 vid-frame" d-flex justify-content-left>
+          <div class="col-lg-6 vid-frame" d-flex justify-content-left data-aos="zoom-in">
             <iframe
               width="100%"
               height="100%"
@@ -222,6 +236,279 @@
         </div>
       </div>
     </section>
+
+    <!-- ############################# -->
+    <!-- Problems section -->
+    <!-- ############################# -->
+
+    <section class="problem-section container" >
+      <div class="problem-container row gap-lg-3 gap-xl-3" data-aos="fade-up"
+      data-aos-duration="`3000">
+        <div class="problem-1 col">
+          <h1 class="problem-h">Current methods being used in healthcare</h1>
+          <img class="problem-img" src="assets/images/problem-1.png" alt="" />
+          <p class="problem-p">
+            Traditional Methods Involves Manual Segmentation OF MRI scans by a
+            technician, followed by a doctor’s Visual Examination to identity
+            humors, This process relies heavily on human expertise making it
+            challenging to achieve accurate and consistent results
+          </p>
+        </div>
+        <div class="problem-2 col">
+          <h1 class="problem-h">The Problems In Current Methods</h1>
+          <img class="problem-img" src="assets/images/problem-2.png" alt="" />
+          <p class="problem-p">
+            Human error and bias can lead to inconsistent or incorrect diagnosis
+            , which can have severe consequences for patients. moreover, Manual
+            Segmentation is a labor process that requires significant expertise
+            making it difficult to scale and increasing the likelihood of errors
+          </p>
+        </div>
+        <div class="problem-3 col">
+          <h1 class="problem-h">Our Solution</h1>
+          <img class="problem-img" src="assets/images/problem-3.png" alt="" />
+          <p class="problem-p">
+            Neuro Insight aims to overcome these defects by automating the
+            segmentation and tumor detection process using machine learning
+            algorithms, By leveraging a large dataset of annotated MRI Scans,
+            Our model can lean to accurately identity tumors and segment them
+            into sub regions, reducing the need for manual intervention.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ############################# -->
+    <!-- Features SECTION -->
+    <!-- ############################# -->
+
+    <section class="features-section py-5">
+      <div class="container text-center mb-5">
+        <h1 class="feature-h">
+          Your <span style="color: #3f81b4">MRI</span>, We analyze.
+        </h1>
+        <p class="feature-p">
+          Your brain MRI holds the key to your health. So, what does it reveal?
+          Find out with AI-powered reports covering topics like :
+        </p>
+      </div>
+
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6" data-aos="zoom-in">
+            <img
+              src="assets/images/Group 39466.svg"
+              alt="Features"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-lg-6">
+            <div data-aos="flip-up" data-aos-duration="" class="feature" id="feature-1" >
+              <img class="feature-img"  src="assets/images/features/feature-1.svg" alt="">
+              <h3 class="feature-text">Tumor Presence</h3>
+            </div>
+            <div data-aos="flip-up" data-aos-duration="500" class="feature" id="feature-2" >
+              <img class="feature-img"  src="assets/images/features/feature-5.svg" alt="">
+              <h3 class="feature-text">Tumor Classification</h3>
+            </div>
+            <div data-aos="flip-up" data-aos-duration="1000" class="feature" id="feature-3" >
+              <img class="feature-img" src="assets/images/features/feature-3.svg" alt="">
+              <h3 class="feature-text">Tumor Sub-Region Analysis</h3>
+            </div>
+
+            <div data-aos="flip-up" data-aos-duration="1500" class="feature" id="feature-4" >
+              <img class="feature-img"  src="assets/images/features/feature-4.svg" alt="">
+              <h3 class="feature-text">Brain Health Insights</h3>
+            </div>
+            <div data-aos="flip-up" data-aos-duration="2000" class="feature" id="feature-5" >
+              <img class="feature-img"  src="assets/images/features/feature-2.svg" alt="">
+              <h3 class="feature-text">Personalized Recommendations</h3>
+            </div>
+          </div>
+
+            <!-- <h2 class="f-36 mb-4">Our Features</h2>
+            <div class="features-list">
+              <div class="feature-item d-flex align-items-center mb-4">
+                <img
+                  src="assets/images/Tick Square.png"
+                  width="24"
+                  height="24"
+                  class="me-3"
+                  alt="tick"
+                />
+                <div>
+                  <h4 class="f-20 mb-2">Automated Analysis</h4>
+                  <p>
+                    Advanced AI algorithms for quick and accurate tumor
+                    detection
+                  </p>
+                </div>
+              </div>
+              <div class="feature-item d-flex align-items-center mb-4">
+                <img
+                  src="assets/images/Tick Square.png"
+                  width="24"
+                  height="24"
+                  class="me-3"
+                  alt="tick"
+                />
+                <div>
+                  <h4 class="f-20 mb-2">Detailed Reports</h4>
+                  <p>
+                    Comprehensive analysis with visualizations and measurements
+                  </p>
+                </div>
+              </div>
+              <div class="feature-item d-flex align-items-center">
+                <img
+                  src="assets/images/Tick Square.png"
+                  width="24"
+                  height="24"
+                  class="me-3"
+                  alt="tick"
+                />
+                <div>
+                  <h4 class="f-20 mb-2">Real-time Processing</h4>
+                  <p>Instant results for faster medical decisions</p>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ############################# -->
+    <!-- Mockup section -->
+    <!-- ############################# -->
+
+    <section class="landing-page d-flex align-items-center" style="background-color: #fff;">
+      <div 
+        class="container landing-page-left d-flex flex-column align-items-start gap-3 gap-lg-4"
+      >
+        
+        <h1 class="mockup-h" data-aos="fade-right">
+          Revolutionizing Brain Tumor <br> Analysis with AI Precision
+        </h1>
+        <p class="mockup-p" data-aos="fade-right">
+          1. Experience advanced AI-powered brain tumor <br> detection for quick and accurate results.
+          <br>
+<br>
+2. Easily segment and classify tumors with precision- <br> driven technology.
+<br>
+<br>
+
+3. Generate detailed medical reports in seconds for <br> effective diagnosis and treatment.
+<br>
+<br>
+4. Simplify complex medical analysis with an intuitive <br> and user-friendly interface.
+        </p>
+        <div class="btn-container" data-aos="fade-up">
+          <button class="btn btn-landing">
+            Try now
+            <img
+              src="assets/images/Arrow - Right Circle.png"
+              alt="Arrow Icon"
+              width="20"
+              height="20"
+              class="me-2"
+            />
+          </button>
+          <img
+            class="tilde"
+            src="assets/images/tilde.png"
+            alt="Tilde Icon"
+            width="30"
+            height="30"
+          />
+        </div>
+      </div>
+
+      <!-- Background Image -->
+
+      <div class="landing-page-image-container" >
+        <img data-aos="fade-up-left"
+        style="width: 800px;"
+          src="assets/images/mockup.svg"
+          alt="Landing Page Image"
+          class="landing-page-image"
+        />
+      </div>
+    </section>
+
+    
+    <section class="bg-light-blue" style="height: 300px; width: 100%;">
+
+    </section>
+
+
+   
+
+    <!-- ############################# -->
+    <!-- FOOTER -->
+    <!-- ############################# -->
+
+
+
+    <footer class="bg-white mt-5 py-5">
+      <div class="container">
+        <div class="row">
+          <!-- Logo and Description Column -->
+          <div class="col-lg-4 col-md-12 mb-4">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <img
+                width="45"
+                height="45"
+                src="assets/images/neuro_insight_logo.png"
+                alt="Logo"
+              />
+              <h6 class="nav-heading">Neuro Insight</h6>
+            </div>
+            <p>
+              Transforming brain tumor analysis through innovative AI solutions
+              and medical expertise.
+            </p>
+          </div>
+
+          <!-- Useful Links Column -->
+          <div class="col-lg-4 col-md-12 mb-4">
+            <h5 class="mb-3">Useful Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="index.html" class="text-decoration-none text-dark"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="dashboard.html" class="text-decoration-none text-dark"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a href="our_team.html" class="text-decoration-none text-dark"
+                  >Our Team</a
+                >
+              </li>
+              <li>
+                <a href="sign_up.html" class="text-decoration-none text-dark"
+                  >Sign Up</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Column -->
+          <div class="col-lg-4 col-md-12 mb-4">
+            <h5 class="mb-3">Contact Us</h5>
+            <ul class="list-unstyled">
+              <li>Email: info@neuroinsight.com</li>
+              <li>Phone: +1 234 567 890</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
 
     <script src="assets/bootstrap5/js/bootstrap.bundle.js"></script>
     <!-- AOT LIBRARY  -->

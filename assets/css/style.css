@@ -35778,7 +35778,8 @@ textarea.form-control-lg {
   }
 }
 .landing-page {
-  min-height: calc(100vh - 73px);
+  padding-top: 140px;
+  padding-bottom: 100px;
   position: relative;
   background-color: #E3E8FF;
   overflow: hidden;
@@ -35856,9 +35857,11 @@ textarea.form-control-lg {
 }
 @media (max-width: 990px) {
   .landing-page {
-    height: 50vh;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    gap: 20px;
     flex-direction: column;
-    align-items: center;
+    align-items: end;
     justify-content: space-between;
   }
   .landing-page-image {
@@ -35891,9 +35894,21 @@ textarea.form-control-lg {
 }
 .university-section {
   height: 340px;
+  padding-top: 50px;
   background-color: #fff;
 }
 
+@media (max-width: 450px) {
+  .university-section {
+    padding-top: 20px;
+    padding-bottom: 0;
+    height: auto;
+  }
+  .logos-slide img {
+    height: 90px !important;
+    margin: 0 40px;
+  }
+}
 @keyframes slide {
   from {
     transform: translateX(0);
@@ -35967,17 +35982,247 @@ iframe {
   }
 }
 @media (max-width: 990px) {
+  .tumor-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    height: auto;
+  }
   .tumor-section .container .row {
     display: flex;
+    text-align: center;
     flex-direction: column;
   }
   iframe {
     width: 100%;
-    height: 240px;
+    height: 340px;
     border-radius: 8px;
     /* Optional: Add border radius for styling */
   }
 }
+@media (max-width: 590px) {
+  .tumor-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  iframe {
+    width: 100%;
+    height: 15rem;
+    border-radius: 8px;
+    /* Optional: Add border radius for styling */
+  }
+}
+.problem-container {
+  padding-top: 43px;
+  padding-bottom: 43px;
+}
+
+.problem-1,
+.problem-2,
+.problem-3 {
+  border-radius: 16px;
+  background: #E3E8FF;
+  padding: 37px 46px 0 46px;
+}
+
+.problem-img {
+  width: 100%;
+  max-height: 296px;
+  padding-bottom: 33px;
+}
+
+.problem-h {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+.problem-p {
+  color: #000;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  /* 127.778% */
+}
+
+@media (max-width: 1025px) {
+  .problem-1,
+  .problem-2,
+  .problem-3 {
+    border-radius: 16px;
+    background: #E3E8FF;
+    padding: 37px 46px 0 46px;
+  }
+  .problem-img {
+    padding-bottom: 30px;
+  }
+  .problem-h {
+    font-size: 20px;
+  }
+  .problem-p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 995px) {
+  .problem-img {
+    width: auto;
+    max-height: auto;
+    padding-bottom: 33px;
+  }
+  .problem-container {
+    display: flex;
+    gap: 30px;
+  }
+  .problem-1,
+  .problem-2,
+  .problem-3 {
+    width: 50%;
+    padding: 37px 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .problem-img {
+    padding-bottom: 20px;
+  }
+  .problem-h {
+    font-size: 20px;
+  }
+  .problem-p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 590px) {
+  .tumor-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  iframe {
+    width: 100%;
+    height: 15rem;
+    border-radius: 8px;
+    /* Optional: Add border radius for styling */
+  }
+  .problem-1,
+  .problem-2,
+  .problem-3 {
+    width: 50%;
+    padding: 17px 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .problem-container {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .problem-img {
+    height: 180px;
+  }
+  .problem-h {
+    font-size: 17px;
+  }
+  .problem-p {
+    font-size: 12px;
+  }
+}
+.features-section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #E9EDFE;
+}
+
+.feature-h {
+  color: var(--black-100, #434A54);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 133%;
+  /* 47.88px */
+}
+
+.feature-p {
+  color: var(--black-80, #696E76);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 154.3%;
+  /* 24.688px */
+}
+
+.feature {
+  border-radius: 12px;
+  display: flex;
+  display: flex;
+  margin-bottom: 17px;
+  padding: 10px 30px;
+  height: 83;
+  align-items: center;
+  gap: 21px;
+  align-self: stretch;
+}
+
+.feature-text {
+  color: var(--black-100, #434A54);
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 133%;
+  margin: 0;
+  /* 33.25px */
+}
+
+#feature-1 {
+  background: var(--Orange-Opac, #FFF3E0);
+}
+
+#feature-2 {
+  background: #E0ECED;
+}
+
+#feature-3 {
+  background: var(--Green-Opac, #F5F9EA);
+}
+
+#feature-4 {
+  background: var(--Violet-Opac, #F3E4F6);
+}
+
+#feature-5 {
+  background: #E0ECED;
+}
+
+.mockup-h {
+  color: var(--black-100, #434A54);
+  font-family: Poppins;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 133%;
+  /* 47.88px */
+}
+
+.mockup-p {
+  color: var(--black-80, #696E76);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 154.3%;
+  /* 24.688px */
+}
+
 .teams-card-container {
   display: flex;
   gap: 10;
