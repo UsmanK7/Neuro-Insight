@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }, 100);
     }
-
     // Handle sample image selection
     document.querySelectorAll('.sample-image').forEach(img => {
         img.addEventListener('click', () => {

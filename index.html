@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-
+    
     <!-- Inter fonts -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,7 +23,7 @@
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 
     <!-- AOT LIBRARY -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="assets/aos_library/css/aos.css" />
 
     <title>Neuro Insight</title>
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -63,7 +63,7 @@
         >
           <ul class="navbar-nav gap-5">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">HOME</a>
+              <a class="nav-link active" aria-current="page" href="index.html">HOME</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="dashboard.html">Products</a>
@@ -265,13 +265,13 @@
           </p>
         </div>
         <div class="problem-3 col">
-          <h1 class="problem-h">Our Solution</h1>
+          <h1 class="problem-h" style="padding-bottom: 27px;">Our Solution</h1>
           <img class="problem-img" src="assets/images/problem-3.png" alt="" />
           <p class="problem-p">
             Neuro Insight aims to overcome these defects by automating the
             segmentation and tumor detection process using machine learning
-            algorithms, By leveraging a large dataset of annotated MRI Scans,
-            Our model can lean to accurately identity tumors and segment them
+            algorithms.
+            Our model can learn to accurately identity tumors and segment them
             into sub regions, reducing the need for manual intervention.
           </p>
         </div>
@@ -512,7 +512,7 @@
 
     <script src="assets/bootstrap5/js/bootstrap.bundle.js"></script>
     <!-- AOT LIBRARY  -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="assets/aos_library/js/aos.js"></script>
     <script>
       AOS.init();
     </script>
