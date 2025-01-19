@@ -36223,6 +36223,61 @@ iframe {
   /* 24.688px */
 }
 
+.contact-us-section {
+  height: 374px;
+  width: 100%;
+  background-image: url(../../assets/images/contact-us-section.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.contact-h {
+  color: var(--black-100, #434A54);
+  font-family: Poppins;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 133%;
+  /* 47.88px */
+}
+
+.contact-p {
+  color: var(--black-100, #434A54);
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 154.3%;
+  /* 24.688px */
+}
+
+.contact-left-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-img-div {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-img-div img {
+  max-width: 303px;
+}
+
+@media (max-width: 990px) {
+  .contact-us-img {
+    display: none;
+  }
+  .contact-h {
+    text-align: center;
+  }
+  .contact-p {
+    text-align: center;
+  }
+}
 .teams-card-container {
   display: flex;
   gap: 10;
@@ -36347,6 +36402,63 @@ iframe {
     font-size: 13px;
     margin: 0;
   }
+}
+.footer-heading {
+  color: #3F81B4;
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.footer-p {
+  color: #4F555A;
+  font-family: Poppins;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.footer-sm-heading {
+  color: #3F81B4;
+  font-feature-settings: "liga" off, "clig" off;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26.392px;
+  /* 110% */
+}
+
+.footer-links {
+  color: #4F555A;
+  text-align: center;
+  font-feature-settings: "liga" off, "clig" off;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23.993px;
+  /* 111.111% */
+}
+
+.footer-line {
+  background: #D9DBE9;
+}
+
+.copy-right-heading {
+  color: var(--Neutral-600, #6F6C90);
+  font-feature-settings: "liga" off, "clig" off;
+  font-family: Poppins;
+  font-size: 14.593px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 35.989px;
+  /* 166.667% */
+}
+
+.footer-address {
+  margin: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

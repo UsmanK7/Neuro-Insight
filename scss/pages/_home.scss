@@ -540,3 +540,72 @@ iframe {
     line-height: 154.3%;
     /* 24.688px */
 }
+
+
+// <!-- ############################# -->
+//     <!-- Contact us page -->
+//     <!-- ############################# -->
+
+.contact-us-section {
+    height: 374px;
+    width: 100%;
+    background-image: url(../../assets/images/contact-us-section.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.contact-h {
+    color: var(--black-100, #434A54);
+    font-family: Poppins;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 133%;
+    /* 47.88px */
+}
+
+.contact-p {
+    color: var(--black-100, #434A54);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 154.3%;
+    /* 24.688px */
+}
+
+.contact-left-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-img-div {
+    display: flex;
+    justify-content: center;
+
+}
+
+.contact-img-div img {
+    max-width: 303px;
+}
+
+@media (max-width: 990px) {
+    .contact-us-img {
+        display: none;
+    }
+
+    .contact-h {
+        text-align: center;
+    }
+
+    .contact-p {
+        text-align: center;
+    }
+
+
+
+
+
+}
