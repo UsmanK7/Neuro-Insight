@@ -23,6 +23,9 @@
   </head>
 
   <body id="home">
+    <!-- ############################# -->
+    <!-- NAVBAR  section -->
+    <!-- ############################# -->
     <header>
       <nav
         class="navbar align-items-center navbar-expand-lg navbar-light bg-light mt-3"
@@ -115,13 +118,20 @@
           </div>
         </div>
         <div>
-          <button class="edit-btn">Edit</button>
+          <button
+            class="edit-btn"
+            data-bs-toggle="modal"
+            data-bs-target="#EditUserDetailsModal"
+          >
+            Edit
+          </button>
         </div>
       </div>
 
       <!-- ############################# -->
       <!-- reports- section -->
       <!-- ############################# -->
+
       <div class="reports-section container mt-2">
         <!-- Add content for this section -->
         <div class="pointy-rectangle d-flex align-items-center">
@@ -130,12 +140,127 @@
         <div
           class="reports d-flex flex-column justify-content-center align-items-center"
         >
-          <img class="reports-temp-img" src="assets/images/report.svg" alt="" />
-          <h3 class="reports-temp-h">No Records Found</h3>
+          <img class="reports-temp-img" src="assets/images/doctor.svg" alt="" />
+          <h3 class="reports-temp-h">No Reports Found</h3>
           <p class="reports-temp-text">
             Please upload your MRI to get <br />
             started with personalized reports
           </p>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="EditUserDetailsModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1
+              class="modal-title fs-5 edit-profile-title"
+              id="exampleModalLabel"
+            >
+              Edit Profile
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- Form Start -->
+            <form>
+              <div class="row">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="text model-input-labels" class="form-label"
+                      >First Name</label
+                    >
+                    <input type="text" class="form-control" id="text" />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="phone model-input-labels" class="form-label"
+                      >Last name</label
+                    >
+                    <input type="text" class="form-control" id="text" />
+                  </div>
+                </div>
+              </div>
+              <!-- Title above Form -->
+              <div class="mb-3">
+                <label for="firstName model-input-labels " class="form-label"
+                  >Email address</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstName"
+                  placeholder=""
+                />
+              </div>
+
+              <div class="text-center my-2 password-update">
+                <h4>Update Password</h4>
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <div>
+                    <label
+                      for="newPassword model-input-labels"
+                      class="form-label"
+                      >Current Password</label
+                    >
+                    <div class="input-container">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="newPassword"
+                      />
+                      <i
+                        class="bi bi-eye-slash password-icon"
+                        onclick="togglePasswordVisibility()"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div>
+                    <label
+                      for="newPassword model-input-labels"
+                      class="form-label"
+                      >New Password</label
+                    >
+                    <div class="input-container">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="newPassword"
+                      />
+                      <i
+                        class="bi bi-eye-slash password-icon"
+                        onclick="togglePasswordVisibility()"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <!-- Form End -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn model-save-btn mx-auto">
+              Save
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -146,24 +271,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script>
-      document
-        .getElementById("drawerToggle")
-        .addEventListener("click", function (event) {
-          event.stopPropagation();
-          document.getElementById("drawer").classList.toggle("show");
-        });
 
-      document.addEventListener("click", function (event) {
-        var drawer = document.getElementById("drawer");
-        if (
-          drawer.classList.contains("show") &&
-          !drawer.contains(event.target)
-        ) {
-          drawer.classList.remove("show");
-        }
-      });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
   </body>
 </html>

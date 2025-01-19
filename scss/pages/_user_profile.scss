@@ -110,3 +110,100 @@
     line-height: normal;
     text-align: center;
 }
+
+
+.edit-profile-title {
+    color: #000 !important;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#EditUserDetailsModal .modal-body input:focus {
+    border-radius: 8px;
+
+    /* Change to your desired border color */
+    box-shadow: none !important;
+    border-color: #000;
+    /* Remove the blue shadow */
+}
+
+#EditUserDetailsModal .modal-body input {
+    background: #F9F9F9;
+
+}
+
+
+.modal-content {
+    background-color: #F9F9F9;
+}
+
+.modal-body input:focus {
+    border-color: #000 !important;
+    /* Change to desired border color */
+    box-shadow: none !important;
+    /* Remove the blue shadow */
+}
+
+.modal-body input {
+    background: #F9F9F9;
+}
+
+.edit-profile-title {
+    color: #000 !important;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.text-center h4 {
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+}
+
+.input-group-text {
+    cursor: pointer;
+}
+
+/* Eye icon visibility toggle */
+.bi-eye-slash {
+    font-size: 18px;
+}
+
+.password-update h4 {
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+}
+
+.model-input-labels {
+    color: #000;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.model-save-btn {
+    border-radius: 9px !important;
+    background-color: #3F81B4 !important;
+    width: 72px;
+    height: 35px;
+    flex-shrink: 0;
+    color: #FDFFFE !important;
+    font-family: Poppins;
+    font-size: 12px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: normal;
+}
