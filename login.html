@@ -97,7 +97,13 @@
                 ></i>
               </div>
 
-              <button type="submit" class="btn login-btn">Log In</button>
+              <button
+                type="button"
+                class="btn login-btn"
+                onclick="redirectToProfile()"
+              >
+                Log in
+              </button>
               <h3 class="text-center login-with-h">or Log in with</h3>
               <div class="d-flex justify-content-center gap-5">
                 <img src="assets/images/login-facebook.svg" alt="" />
@@ -119,6 +125,11 @@
 
     <script src="assets/bootstrap5/js/bootstrap.bundle.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      function redirectToProfile() {
+        window.location.href = "user_profile.html";
+      }
+    </script>
     <script>
       AOS.init();
     </script>

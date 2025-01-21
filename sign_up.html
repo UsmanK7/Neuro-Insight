@@ -23,7 +23,7 @@
     />
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 
-    <title>Log in</title>
+    <title>Sign up</title>
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body class="background">
@@ -118,7 +118,13 @@
                 ></i>
               </div>
 
-              <button type="submit" class="btn login-btn">Sign up</button>
+              <button
+                type="button"
+                class="btn login-btn"
+                onclick="redirectToProfile()"
+              >
+                Sign up
+              </button>
               <h3 class="text-center login-with-h">or Sign up with</h3>
               <div class="d-flex justify-content-center gap-5">
                 <img src="assets/images/login-facebook.svg" alt="" />
@@ -140,6 +146,11 @@
 
     <script src="assets/bootstrap5/js/bootstrap.bundle.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      function redirectToProfile() {
+        window.location.href = "user_profile.html";
+      }
+    </script>
     <script>
       AOS.init();
     </script>

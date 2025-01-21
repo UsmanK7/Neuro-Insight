@@ -35920,7 +35920,7 @@ textarea.form-control-lg {
 }
 .logos {
   overflow: hidden;
-  padding: 60px 0;
+  padding: 40px 0;
   background: white;
   white-space: nowrap;
   position: relative;
@@ -35961,7 +35961,7 @@ textarea.form-control-lg {
 }
 
 .tumor-section {
-  height: 500px;
+  height: 350px;
   background-color: #E3E8FF;
   /* Added padding for spacing */
 }
@@ -36013,8 +36013,8 @@ iframe {
   }
 }
 .problem-container {
-  padding-top: 43px;
-  padding-bottom: 43px;
+  padding-top: 23px;
+  padding-bottom: 23px;
 }
 
 .problem-1,
@@ -36225,7 +36225,7 @@ iframe {
 }
 
 .contact-us-section {
-  height: 374px;
+  height: 354px;
   width: 100%;
   background-image: url(../../assets/images/contact-us-section.png);
   background-size: cover;
