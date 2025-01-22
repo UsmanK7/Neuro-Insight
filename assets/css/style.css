@@ -36432,7 +36432,7 @@ iframe {
   padding-left: 10px;
   background-color: #cfd4d7;
   border: 1px solid #dadee0;
-  border-left: 8px solid #3f81b4;
+  border-left: 8px solid #cfd4d7;
 }
 
 .box-heading {
@@ -37103,6 +37103,7 @@ iframe {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  text-align: left;
 }
 
 .login-logo-div img {
