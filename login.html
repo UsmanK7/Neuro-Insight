@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Poppins font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Inter fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+
+    <title>Log in</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="background">
+    <div
+      class="container h-100 flex-column d-flex align-items-center justify-content-center"
+    >
+      <div class="login-left-div hidden-md">
+        <a href="index.html" style="text-decoration: none">
+          <div class="login-logo-div">
+            <img src="assets/images/neuro_insight_logo.png" alt="" />
+            <h3>Neuro Insight</h3>
+          </div>
+          <p class="">
+            An Automated Solution for Brain Cancer <br />
+            Analysis From the Patient’s MRI Scans
+          </p>
+        </a>
+      </div>
+
+      <div class="row login-row w-100">
+        <!-- First Column -->
+        <div
+          class="login-left col-md-6 pe-5 text-center d-flex flex-column align-items-start justify-content-center"
+        >
+          <div class="login-left-div">
+            <a href="index.html" style="text-decoration: none">
+              <div class="login-logo-div">
+                <img src="assets/images/neuro_insight_logo.png" alt="" />
+                <h3>Neuro Insight</h3>
+              </div>
+              <p class="">
+                An Automated Solution for Brain Cancer <br />
+                Analysis From the Patient’s MRI Scans
+              </p>
+            </a>
+          </div>
+
+          <div class="image-container">
+            <img
+              src="assets/images/login-illustration.svg"
+              alt="Placeholder Image"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+
+        <!-- Second Column -->
+        <div class="col-md-6 login-right">
+          <div class="login-form-container login-form">
+            <h3 class="text-center mb-3 login-form-h">Log In</h3>
+            <form>
+              <div class="mb-1">
+                <label for="email" class="form-label">Email address</label>
+                <input
+                  type="email"
+                  class="form-control login-form-input"
+                  id="email"
+                  placeholder="Email address"
+                />
+              </div>
+              <div class="">
+                <input
+                  type="password"
+                  class="form-control login-form-input"
+                  id="newPassword"
+                  placeholder="Password"
+                />
+                <i
+                  class="bi bi-eye-slash password-icon"
+                  onclick="togglePasswordVisibility()"
+                ></i>
+              </div>
+
+              <button
+                type="button"
+                class="btn login-btn"
+                onclick="redirectToProfile()"
+              >
+                Log in
+              </button>
+              <h3 class="text-center login-with-h">or Log in with</h3>
+              <div class="d-flex justify-content-center gap-5">
+                <img src="assets/images/login-facebook.svg" alt="" />
+                <img src="assets/images/login-google.svg" alt="" />
+                <img src="assets/images/login-twitter.svg" alt="" />
+              </div>
+
+              <p class="dont-have-account-p text-center">
+                Dont have an Account?
+                <span
+                  ><a href="sign_up.html" class="sign-up-link">Sign up</a></span
+                >
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/bootstrap5/js/bootstrap.bundle.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      function redirectToProfile() {
+        window.location.href = "user_profile.html";
+      }
+    </script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      var copy = document.querySelector(".logos-slide").cloneNode(true);
+      document.querySelector(".logos").appendChild(copy);
+    </script>
+  </body>
+</html>

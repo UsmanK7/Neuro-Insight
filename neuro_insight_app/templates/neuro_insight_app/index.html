@@ -1,0 +1,591 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuro Insight</title>
+    <link rel="stylesheet" href="{% static 'neuro_insight_app/css/style.css' %}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <!-- Fav icon  -->
+  
+   <link rel="icon" type="image/png" href=" {% static 'neuro_insight_app/images/favicon.png' %}" />
+
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        .main-container {
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .control-btn{
+            cursor:pointer;
+        }
+        .viewer-container {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            height: 500px;
+            overflow: auto;
+            margin-bottom: 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .empty-state {
+            text-align: center;
+            color: #6c757d;
+        }
+        .empty-state i {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+        .btn-custom {
+            background-color: #5469d4;
+            border-color: #5469d4;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #4054c7;
+            border-color: #4054c7;
+            color: white;
+        }
+        .modal-header {
+            background-color: #5469d4;
+            color: white;
+        }
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #5469d4;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+        .processing-text {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #5469d4;
+        }
+        .result-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .prediction-result {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            overflow-y: auto;
+        }
+        
+        .grade-badge {
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tumor-image {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .tumor-image img {
+            max-height: 250px;
+            object-fit: contain;
+        }
+        
+        .tumor-info {
+            width: 100%;
+            text-align: left;
+            border-left: 4px solid #5469d4;
+            padding-left: 15px;
+        }
+        
+        /* No tumor specific styles */
+        .no-tumor-badge {
+            background-color: #28a745 !important;
+        }
+        
+        .no-tumor-border {
+            border-left-color: #28a745 !important;
+        }
+        
+        /* HGG specific styles */
+        .hgg-badge {
+            background-color: #dc3545 !important;
+        }
+        
+        .hgg-border {
+            border-left-color: #dc3545 !important;
+        }
+        
+        /* LGG specific styles */
+        .lgg-badge {
+            background-color: #ffc107 !important;
+            color: #212529 !important;
+        }
+        
+        .lgg-border {
+            border-left-color: #ffc107 !important;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .tumor-image img {
+                max-height: 200px;
+            }
+        
+            .tumor-info {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body id="home">
+    {% comment %} <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <a href="{% url 'neuro_insight_app:home' %}" class="text-decoration-none">
+                <img src="{% static 'neuro_insight_app/images/neuro_insight_logo.png' %}" alt="NeuroInsight Logo" height="50">
+            </a>
+            {% if user.is_authenticated %}
+            <div>
+                <span class="me-3">Welcome, {{ user.username }}</span>
+                <a href="{% url 'neuro_insight_app:logout' %}" class="btn btn-outline-secondary btn-sm">Logout</a>
+            </div>
+            {% endif %}
+        </div>
+    </div> {% endcomment %}
+    <header>
+        <nav class="navbar align-items-center navbar-expand-lg navbar-light bg-light mt-3">
+            <div class="container">
+                <button class="navbar-toggler" type="button" id="drawerToggle">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'neuro_insight_app:home_screen' %}">
+                    
+                    <img src="{% static 'neuro_insight_app/images/neuro_insight_logo.png' %}" alt="Logo" style="width: 45px; margin-right: 11px;">
+                    Neuro Insight
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            
+                            <a class="btn dash-nav-btn" href="{% url 'neuro_insight_app:home_screen' %}">Home</a>
+                        </li>
+                        <li>
+                            <div class="user-div ">
+                               
+                                <div class="user-text">
+                                    <h3 class="user-subtitle">Admin</h3>
+                                    <h3 class="user-title">{{ user.username }}</h3>
+                                </div>
+                                <div class="dropdown user-dropdown">
+                                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src=" {% static 'neuro_insight_app/images/user-image.svg' %}" alt="User">
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                      <li>
+                                        <a class="dropdown-item" href="{% url 'neuro_insight_app:dashboard' %}">
+                                            
+                                          <img width="20" style="margin-right: 5px;" src="{% static 'neuro_insight_app/images/user.png' %}" alt="">
+                                          User Profile
+                                        </a>
+                                      </li>
+                                      <li>
+                                        <a class="dropdown-item" href="{% url 'neuro_insight_app:logout' %}">
+                                            
+                                          <img width="20" style="margin-right: 5px;" src="{% static 'neuro_insight_app/images/logout.png' %}" alt="">
+                                          Logout
+                                        </a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="mt-2 mt-md-3 mx-4">
+        <div class="row gap-2 gap-lg-3">
+            <!-- section 1 -->
+            <div class="col-2 control-column bg-white" id="yellow-div">
+                <div class="upload-mri">
+                    <h3 class="box-heading">Upload Brain MRI</h3>
+                </div>
+                <div class="control-option-div">
+                    <h3 class="box-small-heading">Select File</h3>
+                    <button class="control-btn" data-bs-toggle="modal" data-bs-target="#uploadModal"
+                        style="border: none;">Browse</button>
+                </div>
+
+
+                <div class="upload-mri">
+                    <h3 class="box-heading">Segmentation options</h3>
+                </div>
+                <div class="control-option-div">
+                    <h3 class="box-small-heading">Model</h3>
+                    <select class="control-select">
+                        <option value="" disabled selected>Select</option>
+                        <option value="model1">Unet</option>
+                        {% comment %} <option value="model2">Model 2</option>
+                        <option value="model3">Model 3</option> {% endcomment %}
+                    </select>
+                </div>
+
+                <div class="control-option-div">
+                    <h3 class="box-small-heading">Inference</h3>
+                    <a id="runBtn" class="control-btn" >Run</a>
+                </div>
+
+
+                <div class="upload-mri">
+                    <h3 class="box-heading">Save Report</h3>
+                </div>
+                <div class="control-option-div">
+                    <h3 class="box-small-heading">Patient name</h3>
+                    <input type="text" id="patientNameInput" class="editable-box" placeholder="Enter name" maxlength="100" />
+                </div>
+                <div class="control-option-div">
+                    <h3 class="box-small-heading">Save File</h3>
+                    <button id="saveReportBtn" class="control-btn" style="border: none;">Save</button>
+                </div>
+
+
+                {% comment %} <div class="upload-mri">
+                    <h3 class="box-heading">Status</h3>
+                </div>
+                <div class="control-option-div">
+                    <h3 class="box-small-heading">No activity yet</h3>
+                </div> {% endcomment %}
+            </div>
+
+
+   
+    
+            <div class="col-12 col-md viewer">
+                <div class="upload-mri">
+                    <h3 class="box-heading">MRI Viewer</h3>
+
+                </div>
+                <div id="labelsViewer" class="viewer-container">
+                    <div class="empty-state">
+                        <img width='150' src="{% static 'neuro_insight_app/images/image.png' %}" alt="">
+                        
+                        <h3>No MRI uploaded yet...</h3>
+                        <p>Please upload T1CE and FLAIR Brain MRI scans <br> to get started</p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-12 col-md viewer">
+                <div class="upload-mri">
+                    <h3 class="box-heading">Labels Viewer</h3>
+                </div>
+
+                <div id="predictionViewer" class="viewer-container">
+                    <div class="empty-state">
+                        <img width='150' src="{% static 'neuro_insight_app/images/artificial-intelligence.png' %}" alt="">
+                        <h3>No predictions yet...</h3>
+                        <p>Upload scans and click Run to generate <br> inferences</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Upload Modal -->
+    <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="uploadModalLabel">Upload MRI Scans</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="t1ceFile" class="form-label">T1CE MRI Scan (.nii format)</label>
+                            <input type="file" class="form-control" id="t1ceFile" name="t1ce" accept=".nii,.nii.gz" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="flairFile" class="form-label">FLAIR MRI Scan (.nii format)</label>
+                            <input type="file" class="form-control" id="flairFile" name="flair" accept=".nii,.nii.gz" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sliceNumber" class="form-label">Slice Number</label>
+                            <input type="number" class="form-control" id="sliceNumber" name="slice_number" value="70" min="0" placeholder="70" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-custom" id="confirmUploadBtn">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            let scanId = null;
+            
+            // Handle file upload
+$('#confirmUploadBtn').click(function() {
+    const form = $('#uploadForm')[0];
+    const formData = new FormData(form);
+    
+    if (!$('#t1ceFile').val() || !$('#flairFile').val()) {
+        alert('Please select both T1CE and FLAIR files.');
+        return;
+    }
+    
+    $.ajax({
+        url: "{% url 'neuro_insight_app:upload_mri' %}",
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            if (response.status === 'success') {
+                scanId = response.scan_id;
+                $('#uploadModal').modal('hide');
+                $('#runBtn').prop('disabled', false);
+                
+                // Show loading in labels viewer
+                $('#labelsViewer').html('<div class="overlay"><div class="loader"></div><div class="processing-text">Loading preview...</div></div>');
+                
+                // REMOVED: The line that clears the prediction viewer when new files are uploaded
+                // We want to keep existing predictions if they exist
+                
+                // Trigger prediction for preview only
+                $.ajax({
+                    url: "{% url 'neuro_insight_app:predict' %}",
+                    type: 'POST',
+                    data: {
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    },
+                    success: function(predResponse) {
+                        if (predResponse.status === 'success') {
+                            // Show preview in labels viewer
+                            $('#labelsViewer').html('<img class="result-img" src="data:image/png;base64,' + predResponse.preview_img + '" alt="MRI Preview">');
+                        } else {
+                            alert('Error processing MRI scans: ' + predResponse.message);
+                            $('#labelsViewer').html('<div class="empty-state"><i class="fas fa-exclamation-triangle text-warning"></i><p>Error loading preview</p></div>');
+                        }
+                    },
+                    error: function() {
+                        alert('Server error while processing MRI scans');
+                        $('#labelsViewer').html('<div class="empty-state"><i class="fas fa-exclamation-triangle text-warning"></i><p>Error loading preview</p></div>');
+                    }
+                });
+            } else {
+                alert('Upload failed: ' + response.message);
+            }
+        },
+        error: function() {
+            alert('Server error during upload');
+        }
+    });
+});
+            
+            // Handle run analysis
+            $('#runBtn').click(function() {
+                // Check if model is selected
+                const selectedModel = $('.control-select').val();
+                if (!selectedModel) {
+                    alert('Please select a model from the dropdown menu before running analysis.');
+                    return;
+                }
+                
+                if (!scanId) {
+                    alert('Please upload MRI scans first');
+                    return;
+                }
+                
+                // Show loading in prediction viewer
+                $('#predictionViewer').html('<div class="overlay"><div class="loader"></div><div class="processing-text">Processing MRI scans...</div></div>');
+                
+                // Run prediction
+                $.ajax({
+                    url: "{% url 'neuro_insight_app:predict' %}",
+                    type: 'POST',
+                    data: {
+                        'csrfmiddlewaretoken': '{{ csrf_token }}',
+                        'model': selectedModel  // Pass the selected model to the server
+                    },
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            // Determine result type and set appropriate styling
+                            let badgeClass, borderClass, resultTitle, resultDescription;
+                            
+                            if (response.grade === 'No Tumor') {
+                                badgeClass = 'no-tumor-badge';
+                                borderClass = 'no-tumor-border';
+                                resultTitle = 'No Tumor Detected';
+                                resultDescription = 'The MRI scan shows no signs of tumor presence. This is a normal scan result.';
+                            } else if (response.grade === 'HGG') {
+                                badgeClass = 'hgg-badge';
+                                borderClass = 'hgg-border';
+                                resultTitle = 'HGG (High-Grade Glioma)';
+                                resultDescription = 'The MRI scan shows characteristics of a High-Grade Glioma. These are fast-growing, aggressive tumors that rapidly invade nearby brain tissue.';
+                            } else if (response.grade === 'LGG') {
+                                badgeClass = 'lgg-badge';
+                                borderClass = 'lgg-border';
+                                resultTitle = 'LGG (Low-Grade Glioma)';
+                                resultDescription = 'The MRI scan shows characteristics of a Low-Grade Glioma. These are slow-growing tumors that tend to be less aggressive than high-grade gliomas.';
+                            } else {
+                                // Fallback for unknown results
+                                badgeClass = 'bg-secondary';
+                                borderClass = '';
+                                resultTitle = response.grade || 'Unknown Result';
+                                resultDescription = 'The MRI scan analysis returned an unexpected result.';
+                            }
+                            
+                            // Create result HTML
+                            let resultHTML = `
+                                <div class="prediction-result p-3 text-center">
+                                    <div class="grade-badge mb-3 ${badgeClass} text-white py-2 px-4 rounded-pill d-inline-block">
+                                        <h4 class="m-0">${resultTitle}</h4>
+                                    </div>
+                                    
+                                    <div class="tumor-image mb-3">
+                                        <img class="result-img border rounded shadow-sm" src="data:image/png;base64,${response.prediction_img}" alt="Prediction Result">
+                                    </div>
+                                    
+                                    <div class="tumor-info p-3 bg-light rounded shadow-sm ${borderClass}">
+                                      <h5 class="mb-2">${response.grade === 'No Tumor' ? 'Scan Findings' : 'Tumor Characteristics'}</h5>`;
+                            
+                            // Add specific content based on result type
+                            if (response.grade === 'No Tumor') {
+                                resultHTML += `
+                                    <p class="mb-2"><strong>Findings:</strong> No abnormal tissue growth or tumor-like characteristics detected in the scanned area.</p>
+                                    <p class="mb-0"><strong>Recommendation:</strong> No immediate treatment required. Routine follow-up may be recommended based on patient history.</p>`;
+                            } else if (response.grade === 'HGG') {
+                                resultHTML += `
+                                 
+                                    <p class="mb-2"><strong>Growth Rate:</strong> Fast-growing, aggressive tumor that rapidly invades nearby brain tissue.</p>
+                                    <p class="mb-2"><strong>Typical Symptoms:</strong> May include headaches, seizures, personality changes, and neurological deficits that worsen quickly.</p>
+                                    <p class="mb-0"><strong>Clinical Significance:</strong> Requires urgent treatment. These tumors tend to be more resistant to treatment and have a higher recurrence rate.</p>`;
+                            } else if (response.grade === 'LGG') {
+                                resultHTML += `
+                                    <p class="mb-2"><strong>Growth Rate:</strong> Slow-growing tumor that tends to be less aggressive than high-grade gliomas.</p>
+                                    <p class="mb-2"><strong>Typical Symptoms:</strong> May include seizures that are often the first symptom, with other neurological symptoms developing slowly over time.</p>
+                                    <p class="mb-0"><strong>Clinical Significance:</strong> Generally has a better prognosis than high-grade gliomas. Treatment approach may be less aggressive depending on location and symptoms.</p>`;
+                            }
+                            
+                            resultHTML += `
+                                    </div>
+                                </div>`;
+                            
+                            $('#predictionViewer').html(resultHTML);
+                        } else {
+                            alert('Error during analysis: ' + response.message);
+                            $('#predictionViewer').html('<div class="empty-state"><i class="fas fa-exclamation-triangle text-warning"></i><p>Analysis failed</p></div>');
+                        }
+                    },
+                    error: function() {
+                        alert('Server error during analysis');
+                        $('#predictionViewer').html('<div class="empty-state"><i class="fas fa-exclamation-triangle text-warning"></i><p>Analysis failed</p></div>');
+                    }
+                });
+            });
+            
+            // Reset form on modal open
+            $('#uploadModal').on('show.bs.modal', function() {
+                $('#uploadForm')[0].reset();
+            });
+        });
+        // Patient report saving
+$('#saveReportBtn').click(function() {
+    const patientName = $('#patientNameInput').val().trim();
+    
+    // Validate patient name
+    if (!patientName) {
+        alert('Please enter a patient name');
+        return;
+    }
+    
+    // Check if prediction exists
+    if ($('#predictionViewer').children('.prediction-result').length === 0) {
+        alert('Please run analysis before saving the report');
+        return;
+    }
+    
+    // Show loading state
+    $('#saveReportBtn').prop('disabled', true).text('Saving...');
+    
+    // Submit the save request
+    $.ajax({
+        url: "{% url 'neuro_insight_app:save_report' %}",
+        type: 'POST',
+        data: {
+            'csrfmiddlewaretoken': '{{ csrf_token }}',
+            'patient_name': patientName
+        },
+        success: function(response) {
+            if (response.status === 'success') {
+                alert('Report saved successfully!');
+                // Reset the form
+                $('#patientNameInput').val('');
+                
+                // Ask if user wants to go to dashboard
+                if (confirm('Report saved successfully. View in dashboard?')) {
+                    window.location.href = "{% url 'neuro_insight_app:dashboard' %}";
+                }
+            } else {
+                alert('Error: ' + response.message);
+            }
+            $('#saveReportBtn').prop('disabled', false).text('Save Report');
+        },
+        error: function() {
+            alert('Server error while saving report');
+            $('#saveReportBtn').prop('disabled', false).text('Save Report');
+        }
+    });
+});
+    </script>
+</body>
+</html>

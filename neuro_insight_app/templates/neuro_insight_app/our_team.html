@@ -1,0 +1,421 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Poppins font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  
+
+    <!-- Inter fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="  {% static 'neuro_insight_app/images/favicon.png' %}" />
+
+    <title>Our Team</title>
+    
+    <link rel="stylesheet" href="{% static 'neuro_insight_app/css/style.css' %}" />
+    <style>
+      .contact-us-sectionn {
+        height: 354px;
+        width: 100%;
+        background-image: url("{% static 'neuro_insight_app/images/contact-us-section.png' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }  
+      {% if user.is_authenticated %}
+      .navbar-nav .nav-link::after {
+          bottom: -25px;
+      }
+      {% endif %}
+
+  </style>
+  </head>
+  <body class="bg-light-blue">
+    <!-- ############################# -->
+    <!-- NAVBAR -->
+    <!-- ############################# -->
+
+    <nav class="navbar navbar-expand-lg bg-light-blue">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <div class="d-flex align-items-center gap-2">
+            <img
+              width="45"
+              height="45"
+              src="{% static 'neuro_insight_app/images/neuro_insight_logo.png' %}"
+              alt=""
+            />
+            <h6 class="nav-heading mb-0">Neuro Insight</h6>
+          </div>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav gap-5 align-items-center" style=".nav-link::after {bottom: -25px;}">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="{% url 'neuro_insight_app:home_screen' %}">HOME</a>
+            </li>
+            <li class="nav-item">
+              {% if user.is_authenticated %}
+                <a class="nav-link" href="{% url 'neuro_insight_app:home' %}">Products</a>
+              {% else %}
+                <a class="nav-link" href="{% url 'neuro_insight_app:signup' %}">Products</a>
+              {% endif %}
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'neuro_insight_app:our_team' %}">Our team</a>
+            </li>
+    
+            {% if user.is_authenticated %}
+              <li class="nav-item d-flex align-items-center">
+                <div class="user-div d-flex align-items-center">
+                  <div class="user-text">
+                    <h3 class="user-subtitle mb-0">Admin</h3>
+                    <h3 class="user-title mb-0">{{ user.username }}</h3>
+                  </div>
+                  <div class="dropdown user-dropdown">
+                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="{% static 'neuro_insight_app/images/user-image.svg' %}" alt="User">
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="{% url 'neuro_insight_app:dashboard' %}">
+                          <img width="20" style="margin-right: 5px;" src="{% static 'neuro_insight_app/images/user.png' %}" alt="">
+                          User Profile
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="{% url 'neuro_insight_app:logout' %}">
+                          <img width="20" style="margin-right: 5px;" src="{% static 'neuro_insight_app/images/logout.png' %}" alt="">
+                          Logout
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <button class="btn nav-btn" onclick="window.location.href='{% url 'neuro_insight_app:signup' %}'">
+                  SIGN UP
+                </button>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="team-info">
+      <h6>OUR TEAM</h6>
+      <h1>Meet the Neuro insight team</h1>
+      <p>
+        A dedicated team of experts combining AI innovation and medical
+        precision to transform brain tumor analysis.
+      </p>
+    </div>
+
+    <div
+      data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+      class="container teams-card-container gap-2 gap-xl-5 mt-5"
+    >
+      <div class="card col" style="width: 18rem">
+       
+        <img src=" {% static 'neuro_insight_app/images/team/1.png' %}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">UI/UX Designer</h5>
+          <p class="card-text">Sofia Ahmed</p>
+          <div>
+            <ul class="social-icons-ul">
+              <li>
+                <a href="https://github.com/">
+                  <img
+                    class="social-icons"
+                    
+                    src="{% static 'neuro_insight_app/images/team/social-icons/github.png' %}"
+                    alt=""
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/">
+                  <img
+                    class="social-icons"
+                    
+                    src="{% static 'neuro_insight_app/images/team/social-icons/linkedin.png' %}"
+                    alt=""
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://x.com/">
+                  <img
+                    class="social-icons"
+                    
+                    src="{% static 'neuro_insight_app/images/team/social-icons/twitter.png' %}"
+                    alt=""
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card col" style="width: 18rem">
+        
+        <img src="{% static 'neuro_insight_app/images/team//2.jpg' %}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">AI/ML Engineer & Team lead</h5>
+          <p class="card-text">Muhammad Usman Khan</p>
+          <div>
+            <ul class="social-icons-ul">
+              <li>
+                <a href="https://github.com/UsmanK7">
+                  <img
+                    class="social-icons"
+                    
+                    src="{% static 'neuro_insight_app/images/team/social-icons/github.png' %}"
+                    alt=""
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/">
+                  <img
+                    class="social-icons"
+                    
+                    src="{% static 'neuro_insight_app/images/team/social-icons/linkedin.png' %}"
+                    alt=""
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://x.com/">
+                  <img
+                    class="social-icons"
+                    
+                    src="{% static 'neuro_insight_app/images/team/social-icons/twitter.png' %}"
+                    alt=""
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card col" style="width: 18rem">
+        
+        <img src="{% static 'neuro_insight_app/images/team/3.png' %}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Computer scientist</h5>
+          <p class="card-text">Ahmed Hashir Khan</p>
+          <div>
+            <ul class="social-icons-ul">
+              <li>
+                <a href="https://github.com/">
+                  <img
+                    class="social-icons"
+                   
+                    src=" {% static 'neuro_insight_app/images/team/social-icons/github.png' %}"
+                    alt=""
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/">
+                  <img
+                    class="social-icons"
+                    
+                    src="{% static 'neuro_insight_app/images/team/social-icons/linkedin.png' %}"
+                    alt=""
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://x.com/">
+                  <img
+                    class="social-icons"
+                    
+                    src="{% static 'neuro_insight_app/images/team/social-icons/twitter.png' %}"
+                    alt=""
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card col" style="width: 18rem">
+       
+        <img src=" {% static 'neuro_insight_app/images/team/4.png' %}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">UI/UX Designer</h5>
+          <p class="card-text">Maria Gul</p>
+          <div>
+            <ul class="social-icons-ul">
+              <li>
+                <a href="https://github.com/">
+                  <img
+                    class="social-icons"
+                    
+                    src="{% static 'neuro_insight_app/images/team/social-icons/github.png' %}"
+                    alt=""
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/">
+                  <img
+                    class="social-icons"
+                    
+                    src="{% static 'neuro_insight_app/images/team/social-icons/linkedin.png' %}"
+                    alt=""
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://x.com/">
+                  <img
+                    class="social-icons"
+                    
+                    src="{% static 'neuro_insight_app/images/team/social-icons/twitter.png' %}"
+                    alt=""
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ############################# -->
+    <!-- FOOTER -->
+    <!-- ############################# -->
+
+    <footer class="bg-white mt-5 py-3">
+      <div class="container">
+        <div class="row">
+          <!-- Logo and Description Column -->
+          <div class="col-lg-4 col-md-12 mb-4">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <img
+                width="45"
+                height="45"
+                
+                src="{% static 'neuro_insight_app/images/neuro_insight_logo.png' %}"
+                alt="Logo"
+              />
+              <h6 class="nav-heading">Neuro Insight</h6>
+            </div>
+            <p class="footer-p">
+              Transforming brain tumor analysis <br />
+              through innovative AI solutions and <br />
+              medical expertise.
+            </p>
+          </div>
+
+          <!-- Useful Links Column -->
+          <div class="col-lg-4 col-md-12 mb-4">
+            <h5 class="mb-3 footer-sm-heading">Useful Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-decoration-none mb-2 footer-links"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="dashboard.html"
+                  class="text-decoration-none mb-2 footer-links"
+                  >Products</a
+                >
+              </li>
+              <li>
+                <a
+                  href="our_team.html"
+                  class="text-decoration-none mb-2 footer-links"
+                  >Our Team</a
+                >
+              </li>
+              <li>
+                <a
+                  href="sign_up.html"
+                  class="text-decoration-none mb-2 footer-links"
+                  >Sign Up</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Column -->
+          <div class="col-lg-4 col-md-12 mb-4">
+            <h5 class="mb-3 footer-sm-heading">Contact Us</h5>
+            <ul class="list-unstyled">
+              <li>
+                <div class="d-flex gap-2 mb-2">
+                  
+                  <img src="{% static 'neuro_insight_app/images/footer-email.svg' %}" alt="" />
+                  <p class="footer-address">info@neuroinsight.com</p>
+                </div>
+              </li>
+              <li>
+                <div class="d-flex gap-2">
+                  
+                  <img src="{% static 'neuro_insight_app/images/footer-mark.svg' %}" alt="" />
+                  <p class="footer-address">Mianwali, Punjab, Pakistan</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <hr class="footer-line" />
+          <div class="d-flex justify-content-center">
+            <h3 class="copy-right-heading">Copyright © 2025</h3>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="{% static 'neuro_insight_app/bootstrap5/js/bootstrap.bundle.js' %}"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      var copy = document.querySelector(".logos-slide").cloneNode(true);
+      document.querySelector(".logos").appendChild(copy);
+    </script>
+  </body>
+</html>
+
+{% endblock %}

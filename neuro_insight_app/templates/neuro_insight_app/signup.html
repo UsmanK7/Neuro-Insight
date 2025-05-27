@@ -1,0 +1,169 @@
+{% load static %}
+{% block content %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Poppins font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- AOS Library  -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Inter fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href=" {% static 'neuro_insight_app/images/favicon.png' %}" />
+    
+    <link rel="stylesheet" href=" {% static 'neuro_insight_app/css/style.css' %}" />
+
+    <title>Sign up</title>
+  </head>
+  <body class="background">
+    <div
+      class="container h-100 flex-column d-flex align-items-center justify-content-center"
+    >
+    <div class="login-left-div hidden-md">
+      <a href="{% url 'neuro_insight_app:home_screen' %}" style="text-decoration: none">
+          <div class="login-logo-div">
+              <img src="{% static 'neuro_insight_app/images/neuro_insight_logo.png' %}" alt="Neuro Insight Logo" />
+              <h3>Neuro Insight</h3>
+          </div>
+          <p class="">
+              An Automated Solution for Brain Cancer <br />
+              Analysis From the Patient's MRI Scans
+          </p>
+      </a>
+  </div>
+
+      <div class="row login-row w-100">
+        <!-- First Column -->
+        <div
+          class="login-left col-md-6 pe-5 text-center d-flex flex-column align-items-start justify-content-center"
+        >
+          <div class="login-left-div">
+            <a  style="text-decoration: none">
+              <div class="login-logo-div">
+                
+                <img src="{% static 'neuro_insight_app/images/neuro_insight_logo.png' %}" alt="" />
+                <h3>Neuro Insight</h3>
+              </div>
+              <p class="">
+                An Automated Solution for Brain Cancer <br />
+                Analysis From the Patient’s MRI Scans
+              </p>
+            </a>
+          </div>
+
+          <div class="image-container">
+            <img
+              src="{% static 'neuro_insight_app/images/login-illustration.svg' %}"
+              alt="Placeholder Image"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+
+        <!-- Second Column -->
+        <div class="col-md-6 login-right">
+          <div class="login-form-container login-form">
+            <div class="text-center">
+                <img src="{{ STATIC_URL }}neuro_insight_app/images/neuro_insight_logo.png" alt="NeuroInsight Logo" height="80">
+                <h3 class="text-center login-form-h mb-0">Create new account</h3>
+               
+            </div>
+            <form method="post" class="signup-form">
+                {% csrf_token %}
+                
+                {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.non_field_errors %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
+                <div class="">
+                    <label for="{{ form.username.id_for_label }}" class="form-label">Username</label>
+                    {{ form.username }}
+                    {% if form.username.errors %}
+                    <div class="text-danger">
+                        {{ form.username.errors }}
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="">
+                    <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                    <div class="text-danger">
+                        {{ form.email.errors }}
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="">
+                    <label for="{{ form.password1.id_for_label }}" class="form-label">Password</label>
+                    {{ form.password1 }}
+                    {% if form.password1.errors %}
+                    <div class="text-danger">
+                        {{ form.password1.errors }}
+                    </div>
+                    {% endif %}
+                    <div class="form-text">
+                        Your password must be 8+ characters, contain letters and numbers, and must not be entirely numeric.
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="{{ form.password2.id_for_label }}" class="form-label">Confirm Password</label>
+                    {{ form.password2 }}
+                    {% if form.password2.errors %}
+                    <div class="text-danger">
+                        {{ form.password2.errors }}
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg" style="color: white;">Sign Up</button>
+                </div>
+            </form>
+            
+            <div class="text-center">
+                <p style="color: black;">Already have an account?  <a href="{% url 'neuro_insight_app:login' %}" >Log in</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="assets/bootstrap5/js/bootstrap.bundle.js"></script> -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      function redirectToProfile() {
+        window.location.href = "user_profile.html";
+      }
+    </script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      var copy = document.querySelector(".logos-slide").cloneNode(true);
+      document.querySelector(".logos").appendChild(copy);
+    </script>
+  </body>
+</html>
+{% endblock %}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroInsight</title>
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'neuro_insight_app/bootstrap5/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="{% static 'neuro_insight_app/aos_library/css/aos.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'neuro_insight_app/css/style.css' %}" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'neuro_insight_app/images/favicon.png' %}" type="image/x-icon">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header class="auth-header py-2">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a href="{% url 'neuro_insight_app:home' %}" class="navbar-brand">
+                        <img src="{% static 'neuro_insight_app/images/neuro_insight_logo.png' %}" alt="NeuroInsight Logo" height="50">
+                    </a>
+                    
+                    {% if user.is_authenticated %}
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'neuro_insight_app:home' %}">
+                                    <i class="fas fa-brain"></i> Analyze
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}" href="{% url 'neuro_insight_app:dashboard' %}">
+                                    <i class="fas fa-folder-open"></i> Reports
+                                </a>
+                            </li>
+                        </ul>
+                        
+                        <div class="navbar-nav">
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user-circle"></i> {{ user.username }}
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                    <li><a class="dropdown-item" href="{% url 'neuro_insight_app:logout' %}">Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+    <footer class="py-4 bg-light mt-5">
+        <div class="container text-center">
+            <p class="text-muted mb-0">© 2025 NeuroInsight - Brain Tumor Analysis AI</p>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS Bundle -->
+    <script src="{% static 'neuro_insight_app/bootstrap5/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- AOS Animation Library -->
+    <script src="{% static 'neuro_insight_app/aos_library/js/aos.js' %}"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+    <!-- Custom JS -->
+    <script src="{% static 'neuro_insight_app/js/script.js' %}"></script>
+</body>
+</html>
