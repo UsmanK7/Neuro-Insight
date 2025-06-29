@@ -35,7 +35,7 @@ A medical web application powered by AI for automated analysis of brain MRI scan
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/neuro-insight.git
+   git clone https://github.com/UsmanK7/Neuro-Insight.git
    cd neuro-insight
    ```
 
