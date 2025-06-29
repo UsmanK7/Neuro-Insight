@@ -1,52 +1,152 @@
-# NeuroInsight: AI-Powered Brain Tumor Diagnosis & Segmentation
+# Neuro Insight 🧠
 
-Welcome to **NeuroInsight**, an innovative AI-driven platform designed to revolutionize the detection, segmentation, and classification of brain tumors using state-of-the-art deep learning techniques. This project leverages cutting-edge technologies and advanced deep neural networks to automate critical aspects of brain cancer diagnosis, providing a more accurate, efficient, and reliable alternative to traditional methods.
+A medical web application powered by AI for automated analysis of brain MRI scans, specifically designed to detect and classify glioma brain tumors.
+![screencapture-127-0-0-1-8000-home-screen-2025-06-03-06_41_43](https://github.com/user-attachments/assets/b5bef42c-a2c0-4512-9424-954de9ed7191)
+![mockuper (1)](https://github.com/user-attachments/assets/c0b9cb82-ef48-4255-bebf-52976885f278)
+
+## ✨ Key Features
+
+- **🔍 Automated Tumor Detection**: Instantly identifies presence of brain tumors in MRI scans
+- **📊 Tumor Segmentation**: Precisely segments tumor regions using Attention U-Net architecture
+- **🏷️ Grade Classification**: Classifies tumors as HGG (aggressive) or LGG (less aggressive) using ConvNeXt
+- **📄 Report Generation**: Creates comprehensive PDF reports for clinical use
+- **👤 User Management**: Secure authentication and profile management for medical professionals
+- **💾 Report Storage**: Stores and retrieves patient reports with database integration
+
+## 🏗️ Architecture
+
+- **Frontend**: HTML5, CSS3, Bootstrap 5, JavaScript
+- **Backend**: Django (Python)
+- **AI Models**: 
+  - Attention U-Net for tumor segmentation
+  - ConvNeXt-Base for grade classification
+- **Database**: SQLite3
+- **Dataset**: BraTS 2019
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.8+
+- pip
+- Git
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/neuro-insight.git
+   cd neuro-insight
+   ```
+
+2. **Create virtual environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Set up database**
+   ```bash
+   python manage.py migrate
+   ```
+
+5. **Run the application**
+   ```bash
+   python manage.py runserver
+   ```
+
+6. **Access the application**
+   - Open your browser and navigate to `http://localhost:8000`
+
+## 📋 Usage
+
+1. **Sign Up/Login**: Create an account or login as a medical professional
+2. **Upload MRI Scans**: Upload FLAIR and T1CE modalities with slice selection
+3. **AI Analysis**: The system automatically:
+   - Detects tumor presence
+   - Segments tumor regions if present
+   - Classifies tumor grade (HGG/LGG)
+4. **View Results**: Review segmented images and classification results
+5. **Generate Reports**: Create and download comprehensive diagnostic reports
+6. **Manage Reports**: Access saved reports from your profile
+
+## 🔬 Model Performance
+
+### Segmentation Model (Attention U-Net)
+- **Accuracy**: 99.30%
+- **Dice Coefficient**: 99.47%
+- **Mean IoU**: 50.00%
+- **Precision**: 99.38%
+- **Sensitivity**: 99.24%
+
+### Classification Model (ConvNeXt-Base)
+- **Accuracy**: 98.66%
+- **AUC**: 99.50%
+- **Sensitivity**: 99.54%
+- **Precision**: 94.30%
+- **F1-Score**: 99.20%
+
+## 🛠️ Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| **Web Framework** | Django |
+| **Frontend** | HTML5, CSS3, Bootstrap 5, JavaScript |
+| **Deep Learning** | TensorFlow, Keras |
+| **Image Processing** | OpenCV, nibabel |
+| **Data Science** | NumPy, pandas, scikit-learn |
+| **Visualization** | Matplotlib, Seaborn |
+| **Database** | SQLite3 |
+
+## 📊 Dataset
+
+- **Source**: BraTS 2019 (Brain Tumor Segmentation Challenge)
+- **MRI Sequences**: T1CE and FLAIR modalities
+- **Segmentation Labels**: 4 classes (background, necrotic core, edema, enhancing tumor)
+- **Classification Labels**: HGG vs LGG
+
+## 🔒 Security Features
+
+- User authentication and session management
+- Secure file upload validation
+- Data encryption and privacy protection
+- HIPAA-compliant data handling practices
+
+## 🎯 Target Users
+
+- **Primary**: Doctors and radiologists
+- **Secondary**: Medical students and researchers
+- **Requirements**: No technical AI/ML expertise needed
+
+## 📈 Benefits
+
+- ⚡ **Faster Diagnosis**: Reduces manual analysis time from hours to seconds
+- 🎯 **Improved Accuracy**: AI-powered precision reduces human error
+- 🌐 **Enhanced Accessibility**: Web-based platform for telemedicine
+- 📚 **Educational Value**: Learning tool for medical professionals
+- 💼 **Workflow Integration**: Seamless integration into clinical workflows
+
+## 🔮 Future Enhancements
+
+- [ ] Support for additional MRI modalities (T1, T2, T1-Gd)
+- [ ] Expansion to other brain tumor types (meningioma, pituitary)
+- [ ] Full 3D volume analysis
+- [ ] Integration with hospital PACS systems
+- [ ] Multi-language support
+- [ ] Mobile application development
+
+## ⭐ Acknowledgments
+
+- BraTS 2019 dataset organizers
+- University of Mianwali Computer Science Department
+- Open source community for tools and libraries
+- Medical professionals who provided domain expertise
 
 ---
 
-## 🚀 **Project Overview**
-Brain tumor detection and diagnosis can be a time-consuming and error-prone process when relying on manual methods. **NeuroInsight** aims to address these challenges by integrating AI to:
-- **Detect the presence of brain tumors** in MRI scans.
-- **Segment tumor regions** into key sub-regions: edema, enhancing tumor, and non-enhancing tumor.
-- **Classify tumor types** into **glioblastoma** or **lower-grade glioma**.
-
-By automating these tasks, **NeuroInsight** significantly reduces human error and the time required for diagnosis, empowering healthcare professionals with a more reliable tool for accurate decision-making.
-
-![ct-scan-brain-doctors-hand-600nw-2496120619](https://github.com/user-attachments/assets/1fa7b52c-7914-40ed-9dc4-6070b55eea59)
-
-## 🧠 **Why NeuroInsight?**
-- **Accurate Diagnosis**: By leveraging deep learning models (U-Net, TensorFlow, Keras), NeuroInsight ensures high precision in tumor detection and segmentation.
-- **Enhanced Efficiency**: The platform automates tedious tasks, drastically reducing the time doctors and radiologists spend on image analysis.
-- **Cutting-Edge AI**: Built on TensorFlow and Keras, the project showcases the power of modern neural networks in solving complex healthcare challenges.
-- **Comprehensive Solution**: From detection to segmentation and classification, NeuroInsight provides an all-in-one solution for brain tumor analysis.
-
----
-
-## 💡 **Technologies Used**
-- **Python**: The backbone of the project, ensuring flexibility and ease of integration.
-- **TensorFlow & Keras**: State-of-the-art deep learning frameworks to train, fine-tune, and deploy neural network models.
-- **U-Net**: A highly effective architecture for image segmentation tasks, used to segment tumor regions accurately.
-- **BraTS Dataset**: A curated collection of multi-parametric MRI scans with expert annotations, providing a high-quality dataset for model training and validation.
-
-![1711127950444](https://github.com/user-attachments/assets/5474390e-f6ee-454c-9017-5bd34e4ef453)
-
----
-
-## 🛠️ **How It Works**
-1. **Data Preprocessing**: The MRI scans are preprocessed to ensure consistency, normalization, and preparation for model training.
-2. **Tumor Detection**: AI models are trained to predict the presence of tumors in the provided MRI scans.
-3. **Tumor Segmentation**: The model performs pixel-level segmentation to classify tumor sub-regions (edema, enhancing, non-enhancing tumor).
-4. **Tumor Classification**: Using the segmented data, the model classifies tumor types, distinguishing between glioblastoma and lower-grade gliomas.
-5. **Web Application**: A user-friendly web app that allows healthcare professionals to upload MRI scans and receive automated reports, with interactive visualizations of tumor regions.
-
-![Step 5- Model Processing](https://github.com/user-attachments/assets/853e3e55-980f-4841-b803-a71faf467e3f)
-
----
-
-## 👨‍💻 **Getting Started**
-Clone the repository, set up your environment, and follow the steps in the documentation to run the application or use the models for tumor analysis.
-
-```bash
-git clone https://github.com/UsmanK7/Neuro-Insight.git
-cd Neuro-Insight
-pip install -r requirements.txt
+**⚠️ Medical Disclaimer**: This application is for research and educational purposes. Always consult qualified medical professionals for clinical decisions. The AI predictions should be used as supplementary tools alongside professional medical judgment.
