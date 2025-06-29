@@ -1,6 +1,10 @@
 # Neuro Insight 🧠
 
 A medical web application powered by AI for automated analysis of brain MRI scans, specifically designed to detect and classify glioma brain tumors.
+![image](https://github.com/user-attachments/assets/771dd969-0146-4bd9-b3ff-f66fd00661c5)
+![image](https://github.com/user-attachments/assets/032caca0-f5ce-4894-9fd1-c7aa740dc8e4)
+![image](https://github.com/user-attachments/assets/2a578f1f-859c-46be-9f85-dfb0a152880b)
+
 ![screencapture-127-0-0-1-8000-home-screen-2025-06-03-06_41_43](https://github.com/user-attachments/assets/b5bef42c-a2c0-4512-9424-954de9ed7191)
 ![mockuper (1)](https://github.com/user-attachments/assets/c0b9cb82-ef48-4255-bebf-52976885f278)
 
