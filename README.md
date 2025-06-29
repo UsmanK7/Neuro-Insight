@@ -1,4 +1,5 @@
-![screencapture-127-0-0-1-8000-home-screen-2025-06-29-13_35_03-min](https://github.com/user-attachments/assets/ac2bcd4f-cd87-40ee-8a57-7fa40c9c7705)# Neuro Insight 🧠
+
+# Neuro Insight 🧠
 
 A medical web application powered by AI for automated analysis of brain MRI scans, specifically designed to detect and classify glioma brain tumors.
 ![image](https://github.com/user-attachments/assets/771dd969-0146-4bd9-b3ff-f66fd00661c5)
